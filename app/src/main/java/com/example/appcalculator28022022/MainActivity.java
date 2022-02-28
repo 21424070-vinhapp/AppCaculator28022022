@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Anh xa
         mEdtNumber1=findViewById(R.id.editTextNumber1);
-        mEdtNumber2=findViewById(R.id.editTextNumber1);
+        mEdtNumber2=findViewById(R.id.editTextNumber2);
         mTvResult=findViewById(R.id.textViewResult);
         mBtnPlus=findViewById(R.id.btnPlus);
         mBtnMinus=findViewById(R.id.btnMinus);
@@ -32,11 +32,32 @@ public class MainActivity extends AppCompatActivity {
         mBtnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Button plus", Toast.LENGTH_SHORT).show();
+
                 //Lay du lieu input
                 String textNumber1=mEdtNumber1.getText().toString();
                 String textNumber2=mEdtNumber2.getText().toString();
 
+                if(textNumber1.isEmpty()||textNumber2.isEmpty())
+                {
+                    if(textNumber1.isEmpty())
+                    {
+                        mEdtNumber1.setError("Input Empty");
+                    }
+                    if(textNumber2.isEmpty())
+                    {
+                        mEdtNumber2.setError("Input Empty");
+                    }
+                    return;
+                }
+
+                else{
+                    int number1=Integer.parseInt(textNumber1);
+                    int number2=Integer.parseInt(textNumber2);
+
+                    int result=number1 + number2;
+
+                    mTvResult.setText("Result = "+result);
+                }
             }
         });
 
