@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnMultiplication=findViewById(R.id.btnMultiplication);
         mBtnDivision=findViewById(R.id.btnDivision);
 
-        //bat su kien
+        //bat su kien nut +
         mBtnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +60,40 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //bat su kien dau -
+        mBtnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //lay du lieu input
+                String textNumber1=mEdtNumber1.getText().toString();
+                String textNumber2=mEdtNumber2.getText().toString();
+
+                if(textNumber2.isEmpty()||textNumber1.isEmpty())
+                {
+                    if(textNumber1.isEmpty())
+                    {
+                        mEdtNumber1.setError("Input Empty");
+                    }
+                    if(textNumber2.isEmpty())
+                    {
+                        mEdtNumber2.setError("Input Empty");
+                    }
+                    return;
+                }
+                else
+                {
+                    int number1=Integer.parseInt(textNumber1);
+                    int number2=Integer.parseInt(textNumber2);
+
+                    int result=number1-number2;
+
+                    mTvResult.setText("Result = "+result);
+                }
+            }
+        });
+
+        //Phep nhan
 
 //        //Ham kiem tra gia tri
 //        int a=5;
