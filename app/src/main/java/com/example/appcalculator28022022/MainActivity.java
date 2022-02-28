@@ -94,6 +94,47 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Phep nhan
+        mBtnMultiplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Lay du lieu input
+                String textNumber1=mEdtNumber1.getText().toString();
+                String textNumber2=mEdtNumber2.getText().toString();
+
+                //kiem tra rong
+                if(textNumber1.isEmpty()||textNumber2.isEmpty())
+                {
+                    if(textNumber1.isEmpty())
+                    {
+                        mEdtNumber1.setError("Input is Empty");
+                    }
+                    if(textNumber2.isEmpty())
+                    {
+                        mEdtNumber2.setError("Input is Empty");
+                    }
+                    return;
+                }
+
+                else{
+                    int number1=Integer.parseInt(textNumber1);
+                    int number2=Integer.parseInt(textNumber2);
+
+                    int result=number1*number2;
+
+                    mTvResult.setText("Result = "+result);
+                }
+
+            }
+        });
+
+
+        //phep chia
+        mBtnDivision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //
+            }
+        });
 
 //        //Ham kiem tra gia tri
 //        int a=5;
