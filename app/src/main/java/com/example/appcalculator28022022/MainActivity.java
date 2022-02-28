@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                     {
                         mEdtNumber2.setError("Input Empty");
                     }
-                    return;
                 }
 
                 else{
@@ -79,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
                     {
                         mEdtNumber2.setError("Input Empty");
                     }
-                    return;
                 }
                 else
                 {
@@ -112,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                     {
                         mEdtNumber2.setError("Input is Empty");
                     }
-                    return;
                 }
 
                 else{
@@ -132,7 +129,37 @@ public class MainActivity extends AppCompatActivity {
         mBtnDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
+                //lay du lieu
+                String textNumber1=mEdtNumber1.getText().toString();
+                String textNumber2=mEdtNumber2.getText().toString();
+
+                //kiem tra rong
+                if(textNumber1.isEmpty()||textNumber2.isEmpty())
+                {
+                    if(textNumber1.isEmpty())
+                    {
+                        mEdtNumber1.setError("Input is Empty");
+                    }
+                    if(textNumber2.isEmpty())
+                    {
+                        mEdtNumber2.setError("Input is Empty");
+                    }
+                }
+
+                else
+                {
+                    float number1=Float.parseFloat(textNumber1);
+                    float number2=Float.parseFloat(textNumber2);
+
+                    if(number2==0){
+                        Toast.makeText(MainActivity.this, "Khong chia voi so 0", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        float result=number1/number2;
+                        mTvResult.setText("Result = "+String.format("%.02f",result));
+                    }
+
+                }
             }
         });
 
